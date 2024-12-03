@@ -33,8 +33,9 @@
     }
 
     ready(function() {
+      // Replace 'DateColumn' with your actual date column name
       grist.ready({
-        columns: ["Date"],
+        columns: ['DateColumn'],
         requiredAccess: 'full' // Full access is needed to update rows
       });
 
@@ -45,7 +46,8 @@
           try {
             // Map column names if provided
             const mapped = grist.mapColumnNames(record);
-            const dateValue = mapped ? mapped.DateStr : undefined;
+            // Replace 'DateColumn' with your actual date column name
+            const dateValue = mapped ? mapped.DateColumn : undefined;
 
             if (dateValue === undefined || dateValue === null) {
               console.log('No date value in the record.');
@@ -60,7 +62,8 @@
                 // Prepare action to update the same record
                 const actions = [
                   ['UpdateRecord', tableId, record.id, {
-                    'DayOfWeek': dayOfWeek
+                    // Replace 'DayOfWeekColumn' with your actual column name
+                    'DayOfWeekColumn': dayOfWeek
                   }]
                 ];
                 applyActions(actions);
